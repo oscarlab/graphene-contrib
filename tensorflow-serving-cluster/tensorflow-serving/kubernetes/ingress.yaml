@@ -1,0 +1,28 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: graphene-tf-serving-grpc-ingress
+  namespace: graphene-tf-serving
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPCS"
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30s"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "20s"
+spec:
+  rules:
+  - host: grpc.tf-serving.service.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: graphene-tf-serving-service
+            port:
+              number: 8500
