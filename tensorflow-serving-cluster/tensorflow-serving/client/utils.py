@@ -1,6 +1,10 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2021 Intel Corp.
+#                    Yunge Zhu <yunge.zhu@intel.com>
+
 import json, cv2, base64
 from google.protobuf import json_format
-
 
 def dict_to_json_msg(data):
     return json.dumps(data)

@@ -7,6 +7,7 @@ ENV MODEL_BASE_PATH=${WORK_BASE_PATH}/models
 ENV MODEL_NAME=model
 ENV WERROR=1
 ENV SGX=1
+ENV GRAPHENE_VERSION=303528131c67f58aeee677397ade9593f222ae88
 
 # Enable it to disable debconf warning
 # RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
@@ -50,7 +51,7 @@ RUN apt-get install -y libsgx-dcap-ql-dev libsgx-dcap-default-qpl libsgx-dcap-qu
 # Clone Graphene and Init submodules
 RUN git clone https://github.com/oscarlab/graphene.git ${GRAPHENEDIR} \
     && cd ${GRAPHENEDIR} \
-    && git checkout 303528131c67f58aeee677397ade9593f222ae88
+    && git checkout ${GRAPHENE_VERSION}
 
 # Create SGX driver for header files
 RUN cd ${GRAPHENEDIR}/Pal/src/host/Linux-SGX \

@@ -55,7 +55,7 @@ sgx.enclave_size = "32G"
 # thread for asynchronous events. Therefore, the actual number of threads that
 # the application can create is (sgx.thread_num - 2).
 #
-# We (somewhat arbitrarily) specify 16 threads since TF-Serving is multithreaded.
+# We (somewhat arbitrarily) specify 1024 threads since TF-Serving is multithreaded.
 sgx.thread_num = 1024
 
 # SGX trusted libraries

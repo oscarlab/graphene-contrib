@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2021 Intel Corp.
+#                    Yunge Zhu <yunge.zhu@intel.com>
+
 from __future__ import print_function
 
 import numpy as np

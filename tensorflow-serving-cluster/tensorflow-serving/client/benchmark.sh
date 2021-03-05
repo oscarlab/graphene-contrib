@@ -1,3 +1,10 @@
+#!/bin/bash
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2021  Intel Corporation
+#                     Yunge Zhu <yunge.zhu@intel.com>
+
+set -e
+
 python=$1
 grpc_url=$2
 server_crt=$3

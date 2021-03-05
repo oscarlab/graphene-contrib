@@ -1,15 +1,22 @@
-1. Update system time and install kubernetes
-```
-date -s ${year}/${month}/${day}
-date -s ${hour}:${minute}:${second}
+ # Kubernetes
+ [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
+ is an open-source system for automating deployment, scaling, and management of
+ containerized applications.
+ In this tutorial, we use Kubernetes to manage the TensorFlow Serving containers.
 
-./install_kubernetes.sh
-```
+## Install kubernetes
+We provide a script `install_kubernetes.sh` to install Kubernetes in your machine.
 
-2. Init and enable taint for master node
 ```
-unset http_proxy && unset https_proxy
+   ./install_kubernetes.sh
+```
+*Note*: Please make sure OS time is the latest.
 
+## Initialize and enable taint for master node
+Kubernetes allows users to taint the node so that no pods can be scheduled to it,
+unless a pod explicitly tolerates the taint.
+
+```
 swapoff -a && free -m
 kubeadm init --v=5 --node-name=master-node --pod-network-cidr=10.244.0.0/16
 
@@ -20,8 +27,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
-3. Setup flannel network service
-> flannel/readme.txt
+## Setup flannel network service
+Please refer to flannel/README.md.
 
-4. Setup ingress-nginx service
-> ingress-ngnix/readme.txt
+## Setup ingress-nginx service
+Please refer to ingress-ngix/README.md
