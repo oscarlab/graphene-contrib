@@ -1,13 +1,14 @@
 # Flannel
 Falnnel is a simple and easy way to configure a layer 3 network fabric designed
-for Kubernetes and can be added to any existing Kubernetes cluster though it's
-simplest to add flannel before any pods using the pod network have been started.
+for Kubernetes. Before pods using the pod network are started, Kubernetes will
+add flannel to the Kubernetes cluster.
 
 # Deploy service
 
 ```
 kubectl apply -f ./deploy.yaml
 ```
+
 # Delete service
 
 ```

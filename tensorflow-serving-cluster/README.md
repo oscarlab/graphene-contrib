@@ -1,23 +1,25 @@
 # TensorFlow Serving Cluster PPML Tutorial Scripts
 
-This directory contains the scrips package for [TensorFlow Serving cluster PPML tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html), including two packages:
-- Kebubernetes. This directory contains Yaml configuration files of the serices
-  `flannel` and `ingress-nginx` and installation scrpts. We need to setup these
+This directory contains the scripts package for [TensorFlow Serving cluster PPML tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html), split into two sub-directories:
+- Kebubernetes. This directory contains Yaml configuration files of the services
+  `flannel` and `ingress-nginx` and installation scripts. We need to setup these
   two services in the host to run Kubernetes.
 
 - TensorFlow Serving. This directory contains the client scripts, docker image
   related scripts, the Yaml configuration of TensorFlow Serving in Kubernetes.
 
-We build Kubernetes and TensorFlow Serving on Ubuntu18.04, with SGX platforms.
+We build Kubernetes and TensorFlow Serving on SGX-enabled platforms with Ubuntu
+18.04.
 
 # Tutorial Introduction
 
 Simply running a TensorFlow Serving system inside Graphene is not enough for a
 safe & secure end-user experience. Thus, there is a need to build a complete
-secure inferencing flow. This tutorial will present TensorFlow Serving with Intel
-SGX and Graphene and will provide end-to-end protection (from client to servers)
-and integrate various security ingredients such as the load balancer (Nginx
-Ingress) and elastic scheduler (Kubernetes).
+secure inferencing flow. [The linked tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html)
+will present TensorFlow Serving with Intel SGX and Graphene and will provide
+end-to-end protection (from client to servers) and integrate various security
+ingredients such as the load balancer (Nginx Ingress) and elastic scheduler
+(Kubernetes).
 
 # Prerequisites
 
@@ -49,18 +51,17 @@ The following steps should suffice to run the PPML on a Ubuntu 18.04 installatio
 - Kubernetes. [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
   is an open-source system for automating deployment,
   scaling, and management of containerized applications. In this tutorial, we
-  will provide a script (``install_kubernetes.sh``) to install Kubernetes in your
-  machine.
+  provide a script (``install_kubernetes.sh``) under `<graphene-contrib repository>/tensorflow-serving-cluster/kubernetes/`
+  to install Kubernetes in your machine.
 
 - Intel SGX Driver and SDK/PSW. You need a machine that supports Intel SGX and
   FLC/DCAP. Please follow [this guide](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_Installation_Guide_Linux_2.10_Open_Source.pdf)
   to install the Intel SGX driver and SDK/PSW. Make sure to install the driver with ECDSA/DCAP attestation.
 
 - Graphene. Follow [Quick Start](https://graphene.readthedocs.io/en/latest/quickstart.html)
-  to build Graphene. In this tutorial, we will need to build Graphene in the
-  host to get the tool ``pf_crypt``, which will be used to encrypt the model file.
-
-- TensorFlow Serving cluster scripts package.
+  to build Graphene. [In the linked tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html),
+  we will need to build Graphene in the host to get the tool ``pf_crypt``, which
+  will be used to encrypt the model file.
 
 # Run the PPML
 

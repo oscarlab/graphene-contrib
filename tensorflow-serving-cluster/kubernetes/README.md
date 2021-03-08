@@ -1,8 +1,8 @@
  # Kubernetes
- [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
- is an open-source system for automating deployment, scaling, and management of
- containerized applications.
- In this tutorial, we use Kubernetes to manage the TensorFlow Serving containers.
+[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
+is an open-source system for automating deployment, scaling, and management of
+containerized applications.
+In this tutorial, we use Kubernetes to manage the TensorFlow Serving containers.
 
 ## Install kubernetes
 We provide a script `install_kubernetes.sh` to install Kubernetes in your machine.
@@ -10,7 +10,7 @@ We provide a script `install_kubernetes.sh` to install Kubernetes in your machin
 ```
    ./install_kubernetes.sh
 ```
-*Note*: Please make sure OS time is the latest.
+*Note*: Please make sure OS time is updated.
 
 ## Initialize and enable taint for master node
 Kubernetes allows users to taint the node so that no pods can be scheduled to it,
@@ -31,4 +31,4 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 Please refer to flannel/README.md.
 
 ## Setup ingress-nginx service
-Please refer to ingress-ngix/README.md
+Please refer to ingress-nginx/README.md
