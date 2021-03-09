@@ -1,7 +1,7 @@
 # TensorFlow Serving Cluster PPML Tutorial Scripts
 
 This directory contains the scripts package for [TensorFlow Serving cluster PPML tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html), split into two sub-directories:
-- Kebubernetes. This directory contains Yaml configuration files of the services
+- Kubernetes. This directory contains Yaml configuration files of the services
   `flannel` and `ingress-nginx` and installation scripts. We need to setup these
   two services in the host to run Kubernetes.
 
@@ -25,15 +25,15 @@ ingredients such as the load balancer (Nginx Ingress) and elastic scheduler
 
 The following steps should suffice to run the PPML on a Ubuntu 18.04 installation.
 
-- Ubuntu 18.04. This tutorial should work on other Linux distributions as well,
-  but for simplicity we provide the steps for Ubuntu 18.04 only.
-
-  Please install additional DNS-resolver libraries::
-
-     sudo apt install libnss-mdns libnss-myhostname
+- Ubuntu 18.04. The linked tutorial should work on other Linux distributions as
+  well, but for simplicity we provide the steps for Ubuntu 18.04 only.
+  Please install additional DNS-resolver libraries:
+```
+   sudo apt install libnss-mdns libnss-myhostname
+```
 
 - Docker Engine. Docker Engine is an open source containerization technology for
-  building and containerizing your applications. In this tutorial, applications,
+  building and containerizing your applications. In the linked tutorial, applications,
   like Graphene, TensorFlow Serving, secret providers, will be built in Docker
   images. Then Kubernetes will manage these Docker images.
   Please follow [this guide](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script)
@@ -50,9 +50,8 @@ The following steps should suffice to run the PPML on a Ubuntu 18.04 installatio
 
 - Kubernetes. [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
   is an open-source system for automating deployment,
-  scaling, and management of containerized applications. In this tutorial, we
-  provide a script (``install_kubernetes.sh``) under `<graphene-contrib repository>/tensorflow-serving-cluster/kubernetes/`
-  to install Kubernetes in your machine.
+  scaling, and management of containerized applications. In the linked tutorial,
+  we provide a script (`install_kubernetes.sh`) under `<graphene-contrib repository>/tensorflow-serving-cluster/kubernetes/` to install Kubernetes in your machine.
 
 - Intel SGX Driver and SDK/PSW. You need a machine that supports Intel SGX and
   FLC/DCAP. Please follow [this guide](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_Installation_Guide_Linux_2.10_Open_Source.pdf)
@@ -60,11 +59,11 @@ The following steps should suffice to run the PPML on a Ubuntu 18.04 installatio
 
 - Graphene. Follow [Quick Start](https://graphene.readthedocs.io/en/latest/quickstart.html)
   to build Graphene. [In the linked tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html),
-  we will need to build Graphene in the host to get the tool ``pf_crypt``, which
+  we will need to build Graphene in the host to get the tool `pf_crypt`, which
   will be used to encrypt the model file.
 
 # Run the PPML
 
 Please follow the [TensorFlow Serving cluster PPML tutorial](https://graphene.readthedocs.io/en/latest/tutorials/tensorflow-serving-cluster/index.html)
-to run this PPML step by step.
+to execute the provided scripts step by step.
 

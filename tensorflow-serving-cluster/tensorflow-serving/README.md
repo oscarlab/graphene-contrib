@@ -17,7 +17,7 @@ This directory contains:
   - `download_model.sh` to download the model file.
   - `model_graph_to_saved_model.py` to convert the model file.
   - `run_graphene_tf_serving.sh` and `run_tf_serving.sh` to run TensorFlow Serving
-  with Graphene and with natively (without Graphene).
+  with Graphene and natively (without Graphene).
   - `generate_ssh_config.sh` to generate SSL/TLS certificate and key between TensorFlow
   Serving and client.
 
