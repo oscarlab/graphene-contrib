@@ -44,10 +44,10 @@ The following steps should suffice to run the PPML on a Ubuntu 18.04 installatio
 
 - TensorFlow Serving. [TensorFlow Serving](https://www.TensorFlow.org/tfx/guide/serving)
   is a flexible, high-performance serving system for machine learning models,
-  designed for production environments. Install::
-
+  designed for production environments. Install:
+```
      pip3 install -r <graphene-contrib repository>/tensorflow-serving-cluster/tensorflow-serving/client/requirements.txt
-
+```
 - Kubernetes. [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
   is an open-source system for automating deployment,
   scaling, and management of containerized applications. In the linked tutorial,
