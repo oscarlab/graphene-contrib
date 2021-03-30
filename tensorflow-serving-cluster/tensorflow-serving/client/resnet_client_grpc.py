@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021 Intel Corp.
-#                    Yunge Zhu <yunge.zhu@intel.com>
+# Copyright (C) 2021 Intel Corporation.
+#                    Yunge Zhu <yunge.zhu@intel.linux.com>
 
 from __future__ import print_function
 
@@ -24,19 +24,17 @@ class benchmark_engine(object):
         self.certificate = certificate
         self.request_signatures = []
         self.request_stubs = []
-        self.request_response_list = {}
         self.__prepare__()
         pass
 
     def __prepare__(self):
         for idx in range(self.concurrent_num):
             # get image array
-            if self.image_flag == None:
+            if self.image_flag is None:
                 image_np = np.random.randint(0, 255, (self.batch_size, 224, 224, 3), dtype=np.uint8).astype(np.float32)
-                # print('image type: dummy')
             else:
                 if self.batch_size != 1:
-                    print('not support batch n!=1 with image!')
+                    print('Not support batch size >=1 !')
                     exit()
                 else:
                     image_np = img_to_array(self.image_flag).astype(np.float32)
@@ -117,7 +115,6 @@ class benchmark_engine(object):
         asyncio.set_event_loop(loop)
 
         connections = []
-        self.request_response_list.clear()
         for idx in range(self.concurrent_num):
             connections.append(asyncio.ensure_future(self.__connection__(idx, loop_num)))
 
@@ -140,9 +137,9 @@ class benchmark_engine(object):
             request_num = self.concurrent_num * loop_num
             latency = request_time / request_num
             tps = request_num * self.batch_size / e2e_time
+            # Display the summary information
             format_string = 'summary: cnum {}, batch {}, e2e time(s) {}, average latency(ms) {}, tps: {}'
             print(format_string.format(self.concurrent_num, self.batch_size, e2e_time, 1000*latency, tps))
-    pass
 
 def main():
     benchmark_app = benchmark_engine(args.url, args.img, args.crt, args.batch, args.cnum)
@@ -155,12 +152,12 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-url', type=str, help='gRPC API Serving URL: IP:8500')
-    parser.add_argument('-img', default=None, type=str, help='Image path')
-    parser.add_argument('-crt', default=None, type=str, help='TLS certificate file path')
-    parser.add_argument('-batch', default=1, type=int, help='Batch size')
-    parser.add_argument('-cnum', default=16, type=int, help='Concurrent connection num')
-    parser.add_argument('-loop', default=200, type=int, help='Requests loop num: 0 (infinite loop)')
+    parser.add_argument('--url', type=str, help='gRPC API Serving URL: IP:8500')
+    parser.add_argument('--img', default=None, type=str, help='Image path')
+    parser.add_argument('--crt', default=None, type=str, help='TLS certificate file path')
+    parser.add_argument('--batch', default=1, type=int, help='Batch size')
+    parser.add_argument('--cnum', default=16, type=int, help='Concurrent connection num')
+    parser.add_argument('--loop', default=200, type=int, help='Requests loop num: 0 (infinite loop)')
 
     args = parser.parse_args()
 

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021  Intel Corporation
-#                     Yunge Zhu <yunge.zhu@intel.com>
+# Copyright (C) 2021 Intel Corporation
+#                     Yunge Zhu <yunge.zhu@intel.linux.com>
 
 set -e
 

@@ -15,22 +15,22 @@ ENV GRAPHENE_VERSION=303528131c67f58aeee677397ade9593f222ae88
 # Add steps here to set up dependencies
 RUN apt-get update \
     && apt-get install -y \
-        autoconf \
-        bison \
-        build-essential \
-        coreutils \
-        gawk \
         git \
-        libcurl4-openssl-dev \
-        libprotobuf-c-dev \
-        protobuf-c-compiler \
-        python3-protobuf \
-        libnss-mdns \
-        libnss-myhostname \
-        lsb-release \
+        gawk \
         wget \
         curl \
         init \
+        bison \
+        autoconf \
+        coreutils \
+        libnss-mdns \
+        lsb-release \
+        build-essential \
+        python3-protobuf \
+        libnss-myhostname \
+        libprotobuf-c-dev \
+        protobuf-c-compiler \
+        libcurl4-openssl-dev \
     && apt-get install -y --no-install-recommends apt-utils
 
 RUN echo "deb [trusted=yes arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main" | tee /etc/apt/sources.list.d/intel-sgx.list \
@@ -48,7 +48,7 @@ RUN apt-get install -y libsgx-pce-logic libsgx-ae-qve libsgx-quote-ex libsgx-qe3
 # Install DCAP
 RUN apt-get install -y libsgx-dcap-ql-dev libsgx-dcap-default-qpl libsgx-dcap-quote-verify-dev
 
-# Clone Graphene and Init submodules
+# Clone Graphene and init submodules
 RUN git clone https://github.com/oscarlab/graphene.git ${GRAPHENEDIR} \
     && cd ${GRAPHENEDIR} \
     && git checkout ${GRAPHENE_VERSION}

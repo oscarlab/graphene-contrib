@@ -1,20 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021  Intel Corporation
-#                     Yunge Zhu <yunge.zhu@intel.com>
+# Copyright (C) 2021 Intel Corporation
+#                     Yunge Zhu <yunge.zhu@intel.linux.com>
 
 set -e
 
 function usage_help() {
     echo -e "options:"
-    echo -e "  -h Display help"
-    echo -e "  -a {image_id}"
-    echo -e "  -b {host_ports}"
-    echo -e "  -c {model_name}"
-    echo -e "  -d {ssl_config_file}"
-    echo -e "  -e {attestation_hosts}"
+    echo -e "  -d Display help"
+    echo -e "  -i {image_id}"
+    echo -e "  -h {host_ports}"
+    echo -e "  -m {model_name}"
+    echo -e "  -s {ssl_config_file}"
+    echo -e "  -a {attestation_hosts}"
     echo -e "       Format: '{attestation_domain_name}:{ip}'"
-    echo -e "  -f {sgx_env}"
+    echo -e "  -e {sgx_env}"
     echo -e "       SGX = sgx_env"
 }
 
@@ -42,27 +42,27 @@ while getopts "h?r:a:b:c:d:e:f:" OPT; do
             usage_help
             exit 1
             ;;
-        a)
+        i)
             echo -e "Option $OPTIND, image_id = $OPTARG"
             image_id=$OPTARG
             ;;
-        b)
+        h)
             echo -e "Option $OPTIND, host_ports = $OPTARG"
             host_ports=$OPTARG
             ;;
-        c)
+        m)
             echo -e "Option $OPTIND, model_name = $OPTARG"
             model_name=$OPTARG
             ;;
-        d)
+        s)
             echo -e "Option $OPTIND, ssl_config_file = $OPTARG"
             ssl_config_file=$OPTARG
             ;;
-        e)
+        a)
             echo -e "Option $OPTIND, attestation_hosts = $OPTARG"
             attestation_hosts=$OPTARG
             ;;
-        f)
+        e)
             echo -e "Option $OPTIND, SGX = $OPTARG"
             SGX=$OPTARG
             ;;
@@ -83,7 +83,6 @@ done
 docker run \
     -it \
     --device /dev/sgx \
-    --privileged=true \
     --add-host=${attestation_hosts} \
     -p ${host_ports}:8500-8501 \
     -v ${cur_dir}/models:${work_base_path}/models \

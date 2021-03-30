@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021  Intel Corporation
-#                     Yunge Zhu <yunge.zhu@intel.com>
+# Copyright (C) 2021 Intel Corporation
+#                     Yunge Zhu <yunge.zhu@intel.linux.com>
 
 set -e
 
 function usage_help() {
     echo -e "options:"
     echo -e "  -h Display help"
-    echo -e "  -a {image_id}"
-    echo -e "  -b {host_ports}"
-    echo -e "  -c {model_name}"
-    echo -e "  -d {ssl_config_file}"
+    echo -e "  -i {image_id}"
+    echo -e "  -h {host_ports}"
+    echo -e "  -m {model_name}"
+    echo -e "  -s {ssl_config_file}"
 }
 
 # Default args
@@ -36,19 +36,19 @@ while getopts "h?r:a:b:c:d:" OPT; do
             usage_help
             exit 1
             ;;
-        a)
+        i)
             echo -e "Option $OPTIND, image_id = $OPTARG"
             image_id=$OPTARG
             ;;
-        b)
+        h)
             echo -e "Option $OPTIND, host_ports = $OPTARG"
             host_ports=$OPTARG
             ;;
-        c)
+        m)
             echo -e "Option $OPTIND, model_name = $OPTARG"
             model_name=$OPTARG
             ;;
-        d)
+        s)
             echo -e "Option $OPTIND, ssl_config_file = $OPTARG"
             ssl_config_file=$OPTARG
             ;;

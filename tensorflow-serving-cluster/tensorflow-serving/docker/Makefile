@@ -26,6 +26,7 @@ GRAPHENE_DEBUG = none
 TF-SERVING_BUILD = Release
 endif
 
+.PHONY: all
 all: tensorflow_model_server tensorflow_model_server.manifest pal_loader
 
 ifeq ($(SGX),1)
@@ -64,5 +65,6 @@ tensorflow_model_server:
 pal_loader:
 	ln -s $(GRAPHENE_DIR)/Runtime/pal_loader $@
 
+.PHONY: clean
 clean:
 	$(RM) *.manifest *.manifest.sgx *.token *.sig tensorflow_model_server pal_loader

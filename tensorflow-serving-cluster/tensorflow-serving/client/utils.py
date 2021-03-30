@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021 Intel Corp.
-#                    Yunge Zhu <yunge.zhu@intel.com>
+# Copyright (C) 2021 Intel Corporation.
+#                    Yunge Zhu <yunge.zhu@intel.linux.com>
 
 import json, cv2, base64
 from google.protobuf import json_format
