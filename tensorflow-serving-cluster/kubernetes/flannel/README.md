@@ -1,5 +1,5 @@
 # Flannel
-Falnnel is a simple and easy way to configure a layer 3 network fabric designed
+Flannel is a simple and easy way to configure a layer 3 network fabric designed
 for Kubernetes. Before pods using the pod network are started, Kubernetes will
 add flannel to the Kubernetes cluster.
 
