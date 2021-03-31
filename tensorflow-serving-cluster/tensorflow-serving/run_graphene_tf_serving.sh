@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021 Intel Corporation
-#                     Yunge Zhu <yunge.zhu@intel.linux.com>
+# Copyright (C) 2021 Intel Corporation. Yunge Zhu <yunge.zhu@intel.linux.com>
 
 set -e
 
 function usage_help() {
     echo -e "options:"
-    echo -e "  -d Display help"
+    echo -e "  -h Display help"
     echo -e "  -i {image_id}"
     echo -e "  -h {host_ports}"
     echo -e "  -m {model_name}"

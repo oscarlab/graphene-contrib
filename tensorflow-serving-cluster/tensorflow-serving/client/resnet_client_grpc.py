@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: LGPL-3.0-or-later
-# Copyright (C) 2021 Intel Corporation.
-#                    Yunge Zhu <yunge.zhu@intel.linux.com>
+# Copyright (C) 2021 Intel Corporation. Yunge Zhu <yunge.zhu@intel.linux.com>
 
 from __future__ import print_function
 
@@ -34,7 +33,7 @@ class benchmark_engine(object):
                 image_np = np.random.randint(0, 255, (self.batch_size, 224, 224, 3), dtype=np.uint8).astype(np.float32)
             else:
                 if self.batch_size != 1:
-                    print('Not support batch size >=1 !')
+                    print('Batch size >= 1 is not supported')
                     exit()
                 else:
                     image_np = img_to_array(self.image_flag).astype(np.float32)
