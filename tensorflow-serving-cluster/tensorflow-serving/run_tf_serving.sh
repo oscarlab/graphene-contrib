@@ -29,7 +29,7 @@ https_proxy=""
 no_proxy=""
 
 # Override args
-while getopts "h?i:p:m:s:" OPT; do
+while getopts "h?r:i:p:m:s:" OPT; do
     case $OPT in
         h|\?)
             usage_help
