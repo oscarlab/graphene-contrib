@@ -8,7 +8,7 @@ function usage_help() {
     echo -e "options:"
     echo -e "  -h Display help"
     echo -e "  -i {image_id}"
-    echo -e "  -h {host_ports}"
+    echo -e "  -p {host_ports}"
     echo -e "  -m {model_name}"
     echo -e "  -s {ssl_config_file}"
 }
@@ -29,7 +29,7 @@ https_proxy=""
 no_proxy=""
 
 # Override args
-while getopts "h?r:a:b:c:d:" OPT; do
+while getopts "h?i:p:m:s:" OPT; do
     case $OPT in
         h|\?)
             usage_help
@@ -39,7 +39,7 @@ while getopts "h?r:a:b:c:d:" OPT; do
             echo -e "Option $OPTIND, image_id = $OPTARG"
             image_id=$OPTARG
             ;;
-        h)
+        p)
             echo -e "Option $OPTIND, host_ports = $OPTARG"
             host_ports=$OPTARG
             ;;
