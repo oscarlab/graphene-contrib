@@ -15,22 +15,22 @@ ENV GRAPHENE_VERSION=303528131c67f58aeee677397ade9593f222ae88
 # Add steps here to set up dependencies
 RUN apt-get update \
     && apt-get install -y \
-        autoconf \
-        bison \
-        build-essential \
-        curl \
-        coreutils \
-        git \
-        gawk \
-        init \
-        libnss-mdns \
-        lsb-release \
-        libnss-myhostname \
-        libprotobuf-c-dev \
-        libcurl4-openssl-dev \
-        python3-protobuf \
-        protobuf-c-compiler \
-        wget \
+       autoconf \
+       bison \
+       build-essential \
+       coreutils \
+       curl \
+       gawk \
+       git \
+       init \
+       libcurl4-openssl-dev \
+       libnss-mdns \
+       libnss-myhostname \
+       libprotobuf-c-dev \
+       lsb-release \
+       protobuf-c-compiler \
+       python3-protobuf \
+       wget \
     && apt-get install -y --no-install-recommends apt-utils
 
 RUN echo "deb [trusted=yes arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main" | tee /etc/apt/sources.list.d/intel-sgx.list \
