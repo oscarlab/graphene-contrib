@@ -25,7 +25,6 @@ class benchmark_engine(object):
         self.request_signatures = []
         self.request_stubs = []
         self.__prepare__()
-        pass
 
     def __prepare__(self):
         for idx in range(self.concurrent_num):
