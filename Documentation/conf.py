@@ -20,8 +20,6 @@ import collections
 import pathlib
 import subprocess
 
-import recommonmark.parser
-
 # -- Project information -----------------------------------------------------
 
 project = 'Graphene External Contributions'
@@ -47,7 +45,6 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'breathe',
-    'recommonmark',
     'sphinx_rtd_theme',
 ]
 
@@ -57,8 +54,6 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.md': 'markdown',
-    '.markdown': 'markdown',
 }
 
 # The master toctree document.
@@ -91,7 +86,7 @@ breathe_projects = {p: '_build/doxygen-{}/xml'.format(p) for p in ()}
 
 def generate_doxygen(app):
     for p in breathe_projects:
-        subprocess.check_call(['doxygen', 'Doxyfile-{}'.format(p)])
+        subprocess.check_call(['doxygen', 'Doxyfile'])
 
 def setup(app):
     app.add_stylesheet('css/graphene.css')

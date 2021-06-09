@@ -1,5 +1,3 @@
-# This is a common Doxyfile, actual listings are built from Doxyfile-*
-
 GENERATE_XML = YES
 XML_PROGRAMLISTING = NO
 XML_OUTPUT = xml

@@ -6,7 +6,7 @@ What is this?
 =============
 
 This repository contains external contributions (like useful scripts, snippets,
-etc.) for `Graphene Project <https://github.com/oscarlab/graphene/>`_.
+etc.) for `Graphene Project <https://github.com/oscarlab/graphene/>`__.
 
 Disclaimer
 ==========
@@ -19,7 +19,7 @@ How to contribute?
 
 We welcome contributions through GitHub pull requests. Please keep in mind that
 they are governed by `the same rules as the main project
-<https://graphene.readthedocs.io/en/latest/devel/contributing.html>`_, modulo
+<https://graphene.readthedocs.io/en/latest/devel/contributing.html>`__, modulo
 more forgiving reviews.
 
 
