@@ -588,7 +588,7 @@ Then we will get the new ``server2-sha256.crt``::
 
    LD_LIBRARY_PATH=../../install/lib/ make server2-sha256.crt
 
-Please use the new created ``server2-sha256.crt`` to replace the one under
+Please use the newly created ``server2-sha256.crt`` to replace the one under
 ``ra-tls-secret-prov/certs/``.
 
 At last, we also need to add this new domain name to DNS records list so that
