@@ -226,7 +226,7 @@ Executing the TensorFlow Serving
 
 Start TensorFlow Serving in untrusted machine B::
 
-   ./run_tf_serving.sh -a ${image_id} -b 8500-8501 -c resnet50-v15-fp32 -d ssl.cfg
+   ./run_tf_serving.sh -i ${image_id} -p 8500-8501 -m resnet50-v15-fp32 -s ssl.cfg
 
 *Note*: ``image_id`` is the new pulled Docker image;
 ``8500-8501`` are the ports created on (bound to) the host, you can change them
@@ -259,7 +259,7 @@ is a domain name of TensorFlow Serving installed on machine B.
 
 Start the client request with dummy image::
 
-   python3 ./resnet_client_grpc.py -url ${service_domain_name}:8500 -crt `pwd -P`/ssl_configure/server.crt -batch 1 -cnum 1 -loop 50
+   python3 ./resnet_client_grpc.py --url ${service_domain_name}:8500 --crt `pwd -P`/ssl_configure/server.crt --batch 1 --cnum 1 --loop 50
 
 You can get the inference result printed in the terminal window.
 In later sections, we will run TensorFlow Serving with Graphene inside
@@ -386,7 +386,7 @@ The newly created image will be shown similar to the below::
 Start TensorFlow Serving in untrusted machine B::
 
    cd <graphene-contrib repository>/tensorflow-serving-cluster/tensorflow-serving
-   ./run_graphene_tf_serving.sh -a ${image_id} -b 8500-8501 -c resnet50-v15-fp32 -d ssl.cfg
+   ./run_graphene_tf_serving.sh -i ${image_id} -p 8500-8501 -m resnet50-v15-fp32 -s ssl.cfg
 
 Now, we can use the same request from the client to do the inference.
 
