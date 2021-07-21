@@ -533,7 +533,7 @@ the wrap key::
 
    mkdir plaintext/
    mkdir -p models/resnet50-v15-fp32/1/
-   copy <graphene-contrib repository>/tensorflow-serving-cluster/tensorflow-serving/models/resnet50-v15-fp32/1/saved_model.pb plaintext/
+   cp <graphene-contrib repository>/tensorflow-serving-cluster/tensorflow-serving/models/resnet50-v15-fp32/1/saved_model.pb plaintext/
    LD_LIBRARY_PATH=. ./pf_crypt encrypt -w files/wrap-key -i plaintext/saved_model.pb -o  models/resnet50-v15-fp32/1/saved_model.pb
 
 We now get the encrypted model file under::
